@@ -49,6 +49,14 @@ let user = {
   referral: null,
 };
 
+function formatDate(date) {
+  return date.toLocaleDateString()
+}
+
+function formatCurrency(value) {
+  return `AUD${value.toFixed(2)}`
+}
+
 let profileHTML = `
   <div class="box">
     <h2 class="title is-4">Personal Information</h2>
@@ -56,7 +64,7 @@ let profileHTML = `
       <p><strong>ID:</strong> ${user.id}</p>
       <p><strong>Name:</strong> ${user.name.firstName} ${user.name.lastName}</p>
       <p><strong>Age:</strong> ${user.age}</p>
-      <p><strong>Balance:</strong> $${user.balance.toFixed(2)}</p>
+      <p><strong>Balance:</strong> ${formatCurrency(user.balance)}</p>
       <p><strong>Address:</strong> ${user.address.street}, ${user.address.city}, ${user.address.state} ${user.address.postalCode}</p>
       <p><strong>Join Date:</strong> ${user.joinDate.toLocaleDateString()}</p>
       <p><strong>Last Login:</strong> ${user.lastLogin.toLocaleDateString()}</p>
